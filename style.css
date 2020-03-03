@@ -1,0 +1,74 @@
+:root {
+  --bg: #e5e5e5;
+  --bgD: #cacaca;
+  --bgL: #ffffff;
+
+  --fg: #1d1d1d;
+  --fgD: #000000;
+  --fgL: #3f3f3f;
+
+  --accent: #ff3939;
+  --accentD: #a32424;
+  --accentL: #ff7171;
+
+  --scale: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e5e5e5;
+    --fgD: #cacaca;
+    --fgL: #ffffff;
+
+    --bg: #1d1d1d;
+    --bgD: #000000;
+    --bgL: #3f3f3f;
+
+    --accent: #ff3939;
+    --accentD: #a32424;
+    --accentL: #ff7171;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  :root {
+    --scale: 2;
+  }
+}
+
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: Helvetica Neue, sans-serif;
+}
+body {
+  position: relative;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: calc(0.75cm * var(--scale));
+  background: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.footer button {
+  border: none;
+  background: none;
+  color: var(--fg);
+}
+.footer button img,
+.footer button svg {
+  height: calc(0.75cm * var(--scale) * 0.75);
+}
+.colorSVG {
+  fill: var(--fg);
+}
+
+.selected {
+  fill: var(--accent);
+}
