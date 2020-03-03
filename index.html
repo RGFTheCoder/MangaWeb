@@ -12,6 +12,26 @@
     <meta name="apple-mobile-web-app-title" content="MangaWeb" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('./sw.js').then(
+            function(registration) {
+              // Registration was successful
+              console.log(
+                'ServiceWorker registration successful with scope: ',
+                registration.scope
+              );
+            },
+            function(err) {
+              console.log('ServiceWorker registration failed: ', err);
+            }
+          );
+        });
+      }
+    </script>
+    <script src="./main.js"></script>
   </head>
   <body>
     <div class="content"></div>
@@ -124,24 +144,5 @@
         </svg>
       </button>
     </div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('./sw.js').then(
-            function(registration) {
-              // Registration was successful
-              console.log(
-                'ServiceWorker registration successful with scope: ',
-                registration.scope
-              );
-            },
-            function(err) {
-              console.log('ServiceWorker registration failed: ', err);
-            }
-          );
-        });
-      }
-    </script>
-    <script src="./main.js"></script>
   </body>
 </html>
