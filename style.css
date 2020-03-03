@@ -39,8 +39,11 @@
 html,
 body {
   overflow: hidden;
+  box-sizing: border-box;
   margin: 0;
   font-family: Helvetica Neue, sans-serif;
+  color: var(--fg);
+  background: var(--bgD);
 }
 body {
   position: relative;
@@ -71,4 +74,42 @@ body {
 
 .selected {
   fill: var(--accent);
+}
+
+.content {
+  overflow-y: auto;
+  height: calc(100vh - (0.75cm * var(--scale)));
+  padding: 1pc;
+  box-sizing: border-box;
+}
+
+.content::-webkit-scrollbar {
+  visibility: hidden;
+  width: 0;
+}
+
+.galleryContainer h2 {
+  padding-left: 1pc;
+}
+
+.gallery {
+  width: 100%;
+  height: calc(1in * var(--scale));
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.gallery::-webkit-scrollbar {
+  visibility: hidden;
+  height: 0;
+}
+.gallery button {
+  scroll-snap-align: start;
+  border: none;
+  background: none;
+}
+.gallery img {
+  height: calc(1in * var(--scale));
+  width: auto;
 }
